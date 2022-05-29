@@ -5,7 +5,7 @@ function Nav(props) {
   const {
     categories = [],
     setCurrentCategory,
-    currentCategory
+    currentCategory,
   } = props;
 
   useEffect(() => {
@@ -13,12 +13,10 @@ function Nav(props) {
   }, [currentCategory]);
 
   return(
-    <header data-testid="header" className="flex-row px-1">
+    <header className="flex-row px-1">
        <h2>
         <a data-testid="link" href="/">
-          <span role="img" aria-label="camera">
-            {" "}📸
-          </span>{" "}
+        <span role="img" aria-label="camera"> 📸</span>
           Oh Snap!
         </a>
       </h2>
@@ -30,16 +28,18 @@ function Nav(props) {
             </a>
           </li>
           <li className="mx-2">
-            <span>
-              Contact
-            </span>
+            <span>Contact</span>
           </li>
           {categories.map((category) => (
             <li className={`mx-1 ${
               currentCategory.name === category.name && 'navActive'
               }`} 
               key={category.name}>
-              <span onClick={() => {setCurrentCategory(category)}}>
+              <span
+                onClick={() => {
+                  setCurrentCategory(category)
+                }}
+              >
                 {capitalizeFirstLetter(category.name)}
               </span>
             </li>
@@ -47,7 +47,7 @@ function Nav(props) {
         </ul>
       </nav>
     </header>
-  )
+  );
 }
 
 export default Nav;
