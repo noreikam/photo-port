@@ -4,7 +4,7 @@ import { validateEmail } from '../../utils/helpers';
 function ContactForm() {
   const[formState, setFormState] = useState({ name: '', email: '', message: '' });
   const { name, email, message } = formState;
-  const [errorMessage, setErrorMessage] = useState('blank');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
     // validate email ONLY
